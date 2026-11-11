@@ -3,126 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#10251e">
-<meta name="description" content="Cricket GO — discover cricket stars, build your squad and play quick matches.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#071923">
+<meta name="description" content="Cricket GO — discover, collect cricket stars and play quick cricket matches.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
 <title>Cricket GO</title>
 <style>
-:root{color-scheme:dark;--bg:#101a22;--panel:#1d2a34;--line:#354550;--lime:#d9f36a;--muted:#a9bac4}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f5f7fa;font:16px system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:760px;margin:auto;padding:14px 14px 36px}.hero{background:linear-gradient(130deg,#142b37,#17654c 65%,#142b37);border-radius:18px;padding:18px;overflow:hidden}
-.eyebrow{font-size:11px;letter-spacing:2px;color:#e2f7a3;font-weight:800}.brand{font-size:32px;font-weight:950;letter-spacing:-1px}.brand span{color:var(--lime)}
-.stadium{height:150px;border-radius:13px;background:linear-gradient(#284a61 0%,#142b39 42%,#287e45 43%,#14552e 100%);position:relative;overflow:hidden;margin-top:13px}
-.stands{position:absolute;top:12px;left:0;right:0;height:47px;background:repeating-linear-gradient(90deg,#526b7a 0 5px,#263d4d 5px 10px);opacity:.8}
-.field{position:absolute;width:180px;height:100px;border:2px solid #a6d59c;border-radius:50%;bottom:-45px;left:50%;transform:translateX(-50%)}
-.pitch{position:absolute;width:24px;height:70px;background:#c6a47c;border:1px solid #e0c7a0;left:50%;top:61px;transform:translateX(-50%)}
-.lights{position:absolute;top:5px;left:12px;right:12px;display:flex;justify-content:space-between;color:#fff8c7;font-size:20px}
-.statgrid,.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0}
-.stat,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px}.stat{text-align:center}.stat strong{display:block;font-size:23px}
-.muted{color:var(--muted);font-size:12px}.tabs{display:flex;gap:5px;background:#0b1319;padding:5px;border-radius:12px;margin:14px 0}
-.tab{flex:1;border:0;border-radius:9px;padding:11px 5px;background:#263641;color:#d9e4ea;font-weight:800;cursor:pointer}
-.tab.active{background:var(--lime);color:#18231a}
-.btn,.secondary{border:0;border-radius:10px;padding:12px 14px;font-weight:850;cursor:pointer}
-.btn{background:var(--lime);color:#17221a;width:100%}.secondary{background:#314451;color:white;border:1px solid #526675}
-button:disabled{opacity:.45;cursor:not-allowed}.section{display:none}.section.active{display:block}
-.map{height:175px;border-radius:12px;margin-top:10px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 48% 45%,#347c53,#174a42 65%,#172c3b)}
-.map:before{content:"";position:absolute;inset:0;opacity:.23;background-image:linear-gradient(30deg,transparent 48%,#b3e3b0 49%,transparent 50%),linear-gradient(120deg,transparent 48%,#b3e3b0 49%,transparent 50%);background-size:55px 55px}
-.maplabel{position:absolute;top:12px;left:12px;font-size:12px;font-weight:800}.you{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font-size:12px;font-weight:800}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
-.player{background:linear-gradient(145deg,#344d60,#192a37);border:1px solid #617687;border-radius:12px;padding:12px;text-align:center}
-.player.legendary{border-color:#e2bc5c;background:linear-gradient(145deg,#5d4b27,#24313a)}
-.player{position:relative;overflow:hidden;padding:10px;background:linear-gradient(155deg,#263d50,#111e29 75%)}
-.player.legendary{border:1px solid #e7c45f;background:linear-gradient(155deg,#72551f,#26313a 78%)}
-.player.epic{border:1px solid #b28aff;background:linear-gradient(155deg,#4d3474,#1d2937 78%)}
-.player .portrait{height:104px;border-radius:9px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 28%,#738da0,#263b4b 56%,#152330);font-size:46px}
-.player .portrait:after{content:"PLAYER PORTRAIT";position:absolute;bottom:5px;font-size:8px;letter-spacing:1.4px;color:#dbe8ee;background:#07121c99;padding:3px 6px;border-radius:20px}
-.player .flag{position:absolute;top:7px;right:7px;font-size:20px;filter:drop-shadow(0 2px 3px #000)}
-.player h3{font-size:14px;margin:5px 0 2px}.rating{font-size:24px;font-weight:950;line-height:1.1}
-.player .rarity{font-size:9px;font-weight:900;letter-spacing:1.1px;color:#f6dc91}
-.player.epic .rarity{color:#d4b7ff}.player .roleline{font-size:10px;color:#c3d1da;margin:4px 0 8px}
-.player .attributes{display:grid;grid-template-columns:1fr 1fr;gap:5px;text-align:left;margin:8px 0}
-.player .attr{background:#07131c88;border-radius:6px;padding:5px;font-size:9px;color:#d5e1e7}
-.player .attr b{float:right;color:#fff;font-size:10px}
-.player .cardtop{display:flex;align-items:center;justify-content:space-between;gap:4px}
-.player .cardtop .rating{font-size:23px}.player .country{font-size:9px;color:#c6d5df;text-align:left}
-.feed{background:#101c25;border-radius:9px;padding:12px;min-height:55px;font-size:13px;color:#d7e4eb;margin-top:12px}
-.scoregrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
-.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.ball{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9d9d,#c22e35 70%);margin:15px auto 6px;box-shadow:0 5px 15px #0008}
-.hidden{display:none!important}.footer{text-align:center;color:#82949f;font-size:11px;margin-top:22px}
-@media(min-width:600px){main{padding-top:24px}.brand{font-size:38px}}
+:root{--bg:#071923;--panel:#142a35;--panel2:#1d3540;--lime:#d7f65b;--muted:#a9bdc6;--gold:#ffd45c;--line:#304752}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#071923,#102d34);color:#f4f8fa;font:16px system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.wrap{max-width:1050px;margin:auto;padding:18px}.hero{border:1px solid #285a50;border-radius:26px;padding:24px;background:radial-gradient(circle at 85% 10%,#176d51,#0c403c 45%,#12303b);overflow:hidden}
+.kicker{color:#e0f78b;font-size:12px;letter-spacing:3px;font-weight:800}.brand{font-size:clamp(38px,8vw,66px);font-weight:950;letter-spacing:-3px;margin:5px 0}.brand span{color:var(--lime)}.sub{color:#c4d5d8;margin:0}
+.stadium{height:150px;margin-top:22px;border-radius:18px;position:relative;overflow:hidden;background:linear-gradient(#183d55 0 38%,#237343 39% 100%)}
+.stadium:before{content:"";position:absolute;inset:0 0 65% 0;background:repeating-linear-gradient(90deg,#385365 0 7px,#182d3a 7px 14px)}
+.pitch{position:absolute;width:15%;height:80%;left:42.5%;bottom:-20%;background:#c9a678;border:2px solid #e0c59a}
+.stadium:after{content:"INTERNATIONAL ARENA";position:absolute;bottom:10px;left:0;right:0;text-align:center;font-weight:900;letter-spacing:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.stat,.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px}.stat{text-align:center}.stat b{display:block;font-size:28px}.stat small{color:var(--muted)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:#07131a;padding:6px;border-radius:18px;margin:18px 0}.tabs button{border:0;border-radius:13px;padding:14px 5px;background:#203641;color:#e9f2f5;font-weight:800;font-size:15px}.tabs button.active{background:var(--lime);color:#102019}
+.panel h2{margin:0 0 12px}.muted{color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:12px;padding:12px 16px;font-weight:850;cursor:pointer}.primary{background:var(--lime);color:#142116}.secondary{background:#29434e;color:white;border:1px solid #47616c!important}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}.player{border-radius:17px;padding:14px;background:linear-gradient(150deg,#344a57,#172c39);border:1px solid #536774;position:relative;overflow:hidden}.player.legendary{border-color:#e8c65c;background:linear-gradient(145deg,#5a4821,#1c2d39)}.player.epic{border-color:#b58be8;background:linear-gradient(145deg,#44305e,#1c2d39)}
+.flag{font-size:24px}.rating{float:right;font-size:25px;font-weight:950;color:var(--gold)}.player h3{margin:9px 0 2px}.tag{font-size:11px;font-weight:900;letter-spacing:1px;color:var(--lime)}.bars{font-size:12px;color:#d1e0e5;margin-top:10px;display:flex;justify-content:space-between}.meter{height:6px;background:#0c1a21;border-radius:10px;margin-top:5px;overflow:hidden}.meter i{display:block;height:100%;background:var(--lime)}
+.hidden{display:none!important}.notice{margin-top:12px;color:#d5e4e9;font-size:13px}.matchbox{background:linear-gradient(135deg,#183c32,#132b39);padding:20px;border-radius:16px;text-align:center}.score{font-size:42px;font-weight:950;color:var(--lime)}.footer{color:#8099a3;text-align:center;font-size:12px;padding:25px 8px}
+@media(max-width:560px){.wrap{padding:12px}.hero{padding:18px}.stats{gap:7px}.stat{padding:12px 5px}.stat b{font-size:23px}.tabs button{font-size:13px;padding:12px 2px}.stadium{height:125px}}
 </style>
 </head>
-<body><main id="app">
+<body><main class="wrap">
 <header class="hero">
- <div class="eyebrow">THE ULTIMATE CRICKET WORLD</div>
- <div class="brand">CRICKET <span>GO</span></div>
- <div class="muted">Discover. Collect. Dominate.</div>
- <div class="stadium"><div class="stands"></div><div class="lights">✦　✦　✦　✦　✦　✦</div><div class="field"></div><div class="pitch"></div><div style="position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:11px;font-weight:900;letter-spacing:2px">INTERNATIONAL ARENA</div></div>
- <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:12px"><span>🏆 Rookie League</span><span>🪙 <b id="coins">500</b></span><span>⭐ <b id="xp">0</b> XP</span></div>
+<div class="kicker">THE ULTIMATE CRICKET WORLD</div><div class="brand">CRICKET <span>GO</span></div><p class="sub">Discover. Collect. Dominate.</p>
+<div class="stadium"><div class="pitch"></div></div>
+<div class="actions" style="justify-content:space-between"><span>🏆 Rookie League</span><span>🪙 <b id="coins">500</b></span><span>⭐ <b id="xp">0</b> XP</span></div>
 </header>
-<div class="statgrid"><div class="stat"><strong id="count">0</strong><span class="muted">Players</span></div><div class="stat"><strong id="wins">0</strong><span class="muted">Wins</span></div><div class="stat"><strong id="ovr">0</strong><span class="muted">Team OVR</span></div></div>
-<nav class="tabs" aria-label="Game sections"><button class="tab active" data-tab="explore">🌍 Explore</button><button class="tab" data-tab="collection">🃏 Collection</button><button class="tab" data-tab="match">🏏 Match</button></nav>
-<section class="section active" id="explore">
- <div class="panel"><b>🌍 Cricket World Map</b><div class="map"><div class="maplabel">🏟️ DUBAI ARENA</div><div class="you">📍<br>YOU</div><div style="position:absolute;right:24px;top:47px;font-size:25px">🏏</div><div style="position:absolute;left:28px;bottom:20px;font-size:23px">⭐</div><div style="position:absolute;right:30px;bottom:18px">🎁</div></div><p class="muted">This release uses a virtual map. Real-world GPS exploration is not enabled.</p></div>
- <div class="panel" style="margin-top:10px"><b>✨ Player discovery</b><p class="muted">Search the area for a new cricket star.</p><button class="btn" id="discover">🔍 DISCOVER A PLAYER</button><div id="discovery" class="hidden" style="margin-top:12px"></div></div>
- <div class="panel" style="margin-top:10px"><b>🎁 Starter reward</b><p class="muted">Claim once on this device.</p><button class="secondary" id="reward">Claim 100 coins</button></div>
+<section class="stats">
+<div class="stat"><b id="playerCount">0</b><small>Players</small></div><div class="stat"><b id="wins">0</b><small>Wins</small></div><div class="stat"><b id="ovr">0</b><small>Team OVR</small></div>
 </section>
-<section class="section" id="collection">
- <div class="panel"><b>🃏 My Cricket Collection</b><p class="muted">Collect international stars. Cards show country flags and game-only batting/bowling ratings. Portrait panels are placeholders until licensed player photos are added.</p><div id="players" class="cards"></div></div>
- <div class="panel" style="margin-top:10px"><b>🏆 Squad builder</b><div id="squad" class="muted" style="margin-top:8px">Discover players to start your squad.</div></div>
+<nav class="tabs"><button class="active" data-tab="explore">🌍 Explore</button><button data-tab="collection">🃏 Collection</button><button data-tab="match">🏏 Match</button></nav>
+<section id="explore" class="panel">
+<h2>🌍 Cricket World Map</h2><div class="matchbox"><div style="font-size:12px;letter-spacing:2px">DUBAI ARENA • TRAINING ZONE</div><div style="font-size:42px;margin:12px">📍 🏟️ 🏏</div><p class="muted">Discover a cricket star at the arena. This demo uses a fictional map and does not track your location.</p></div>
+<div class="actions"><button class="primary" id="discover">✨ Discover a player (100 coins)</button></div><p class="notice" id="discoverMsg">You have 500 coins. Discover players and build your squad!</p>
 </section>
-<section class="section" id="match">
- <div class="panel"><b>🏟️ Quick Match • T10</b><div class="stadium"><div class="stands"></div><div class="lights">✦　✦　✦　✦　✦</div><div class="field"></div><div class="pitch"></div><div style="position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:11px;font-weight:900">INTERNATIONAL STADIUM</div></div>
- <div class="scoregrid"><div class="stat"><span class="muted">YOUR SCORE</span><strong id="score">0/0</strong></div><div class="stat"><span class="muted">OVERS</span><strong id="overs">0.0</strong></div></div>
- <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:12px"><span id="innings">Ready to play</span><span id="target">Target: 50</span></div><div class="ball"></div><div class="muted" style="text-align:center">THE NEXT DELIVERY</div>
- <div class="shots"><button class="secondary shot" data-shot="1">Defend</button><button class="secondary shot" data-shot="2">Drive</button><button class="secondary shot" data-shot="3">Power hit</button></div>
- <div class="feed" id="feed">Press Start Match to begin your first innings!</div><button class="btn" id="start" style="margin-top:12px">🏏 START MATCH</button></div>
-</section>
-<div class="footer">CRICKET GO • EARLY ACCESS PROTOTYPE • Player ratings are fictional game attributes, not official statistics. Portrait placeholders require licensed photos for public release. Progress is stored on this device.</div>
+<section id="collection" class="panel hidden"><h2>🃏 Your Player Collection</h2><p class="muted" id="empty">No players yet. Visit Explore to discover your first star.</p><div class="cards" id="cards"></div></section>
+<section id="match" class="panel hidden"><h2>🏏 Quick T10 Match</h2><p class="muted">Choose a batting shot each ball. Your squad strength and timing affect the result.</p><div class="matchbox"><div id="matchState">Ready for the toss?</div><div class="score" id="score">0/0</div><div id="overs">0.0 / 2 overs</div><div class="actions" style="justify-content:center"><button class="primary" id="playBall">Play next ball</button><button class="secondary" id="newMatch">New match</button></div><p class="notice" id="matchMsg">A short 2-over exhibition match.</p></div></section>
+<footer class="footer">Cricket GO fan-made game prototype. Player names are real; game ratings and match results are fictional and are not official statistics. No official league/team affiliation.</footer>
 </main>
 <script>
-(()=>{
-const $=id=>document.getElementById(id);
-const catalog=[
-{name:"Virat Kohli",country:"India",flag:"🇮🇳",role:"Batsman",ovr:96,bat:99,bowl:35,rarity:"LEGENDARY",emoji:"🏏"},
-{name:"Rohit Sharma",country:"India",flag:"🇮🇳",role:"Batsman",ovr:94,bat:98,bowl:42,rarity:"LEGENDARY",emoji:"🔥"},
-{name:"Jasprit Bumrah",country:"India",flag:"🇮🇳",role:"Fast Bowler",ovr:97,bat:28,bowl:99,rarity:"LEGENDARY",emoji:"⚡"},
-{name:"MS Dhoni",country:"India",flag:"🇮🇳",role:"Wicketkeeper",ovr:95,bat:92,bowl:30,rarity:"LEGENDARY",emoji:"🧤"},
-{name:"Hardik Pandya",country:"India",flag:"🇮🇳",role:"All-rounder",ovr:91,bat:90,bowl:86,rarity:"EPIC",emoji:"💥"},
-{name:"Shubman Gill",country:"India",flag:"🇮🇳",role:"Batsman",ovr:90,bat:94,bowl:25,rarity:"EPIC",emoji:"🌟"},
-{name:"Suryakumar Yadav",country:"India",flag:"🇮🇳",role:"Batsman",ovr:93,bat:97,bowl:38,rarity:"LEGENDARY",emoji:"☀️"},
-{name:"Rashid Khan",country:"Afghanistan",flag:"🇦🇫",role:"Spinner",ovr:94,bat:78,bowl:97,rarity:"LEGENDARY",emoji:"🌀"},
-{name:"Babar Azam",country:"Pakistan",flag:"🇵🇰",role:"Batsman",ovr:92,bat:97,bowl:22,rarity:"EPIC",emoji:"👑"},
-{name:"Kane Williamson",country:"New Zealand",flag:"🇳🇿",role:"Batsman",ovr:91,bat:95,bowl:40,rarity:"EPIC",emoji:"🎯"},
-{name:"Ben Stokes",country:"England",flag:"🏴",role:"All-rounder",ovr:93,bat:93,bowl:88,rarity:"LEGENDARY",emoji:"🏆"},
-{name:"Travis Head",country:"Australia",flag:"🇦🇺",role:"Batsman",ovr:90,bat:96,bowl:45,rarity:"EPIC",emoji:"🚀"}];
-let state={owned:[],squad:[],coins:500,xp:0,wins:0,claimed:false};
-try{const saved=JSON.parse(localStorage.getItem("cricketgo-save"));if(saved)state={...state,...saved}}catch(e){}
-// Upgrade players saved by earlier prototype versions with the new card fields.
-const enrich=p=>({...catalog.find(c=>c.name===p.name),...p,...catalog.find(c=>c.name===p.name)});
-state.owned=(state.owned||[]).map(enrich).filter(p=>p.name);
-state.squad=(state.squad||[]).map(enrich).filter(p=>p.name);
-let score=0,wickets=0,balls=0,playing=false;
-function save(){try{localStorage.setItem("cricketgo-save",JSON.stringify(state))}catch(e){}}
+const roster=[
+{name:"Virat Kohli",flag:"🇮🇳",country:"India",role:"Batter",ovr:96,bat:98,bowl:35,rarity:"LEGENDARY"},
+{name:"Rohit Sharma",flag:"🇮🇳",country:"India",role:"Batter",ovr:94,bat:97,bowl:30,rarity:"LEGENDARY"},
+{name:"Jasprit Bumrah",flag:"🇮🇳",country:"India",role:"Bowler",ovr:97,bat:28,bowl:99,rarity:"LEGENDARY"},
+{name:"MS Dhoni",flag:"🇮🇳",country:"India",role:"Wicketkeeper",ovr:95,bat:92,bowl:25,rarity:"LEGENDARY"},
+{name:"Hardik Pandya",flag:"🇮🇳",country:"India",role:"All-rounder",ovr:91,bat:89,bowl:86,rarity:"EPIC"},
+{name:"Shubman Gill",flag:"🇮🇳",country:"India",role:"Batter",ovr:90,bat:93,bowl:24,rarity:"EPIC"},
+{name:"Suryakumar Yadav",flag:"🇮🇳",country:"India",role:"Batter",ovr:93,bat:96,bowl:32,rarity:"LEGENDARY"},
+{name:"Rashid Khan",flag:"🇦🇫",country:"Afghanistan",role:"All-rounder",ovr:94,bat:82,bowl:96,rarity:"LEGENDARY"},
+{name:"Babar Azam",flag:"🇵🇰",country:"Pakistan",role:"Batter",ovr:92,bat:95,bowl:28,rarity:"EPIC"},
+{name:"Kane Williamson",flag:"🇳🇿",country:"New Zealand",role:"Batter",ovr:91,bat:94,bowl:34,rarity:"EPIC"},
+{name:"Ben Stokes",flag:"🏴",country:"England",role:"All-rounder",ovr:93,bat:92,bowl:88,rarity:"LEGENDARY"},
+{name:"Travis Head",flag:"🇦🇺",country:"Australia",role:"Batter",ovr:90,bat:94,bowl:31,rarity:"EPIC"}
+];
+const defaults={coins:500,xp:0,wins:0,owned:[]};let state;
+try{state={...defaults,...JSON.parse(localStorage.getItem("cricketGoSave")||"{}")}}catch(e){state={...defaults}}
+function save(){localStorage.setItem("cricketGoSave",JSON.stringify(state));render()}
 function render(){
-$("coins").textContent=state.coins;$("xp").textContent=state.xp;$("count").textContent=state.owned.length;$("wins").textContent=state.wins;
-$("ovr").textContent=state.squad.length?Math.round(state.squad.reduce((a,p)=>a+p.ovr,0)/state.squad.length):0;
-$("players").innerHTML=state.owned.length?state.owned.map((p,i)=>`<article class="player ${p.rarity.toLowerCase()}"><div class="portrait">${p.emoji}<span class="flag">${p.flag}</span></div><div class="cardtop"><span class="rarity">${p.rarity}</span><span class="rating">${p.ovr}</span></div><h3>${p.name}</h3><div class="country">${p.flag} ${p.country}</div><div class="roleline">${p.role}</div><div class="attributes"><div class="attr">BAT <b>${p.bat}</b></div><div class="attr">BOWL <b>${p.bowl}</b></div></div><button class="secondary add" data-i="${i}" style="width:100%;margin-top:4px">${state.squad.some(x=>x.name===p.name)?"✓ In squad":"Add to squad"}</button></article>`).join(""):'<p class="muted">No players yet. Explore to discover your first star!</p>';
-$("squad").innerHTML=state.squad.length?`<b>${state.squad.length}/11 players</b><br>`+state.squad.map(p=>`${p.emoji} ${p.name} — ${p.ovr}`).join("<br>"):"No players selected yet.";
-$("reward").textContent=state.claimed?"✓ Reward claimed":"Claim 100 coins";
+document.getElementById("coins").textContent=state.coins;document.getElementById("xp").textContent=state.xp;document.getElementById("wins").textContent=state.wins;
+document.getElementById("playerCount").textContent=state.owned.length;
+let avg=state.owned.length?Math.round(state.owned.reduce((a,p)=>a+p.ovr,0)/state.owned.length):0;document.getElementById("ovr").textContent=avg;
+let cards=document.getElementById("cards");cards.innerHTML="";document.getElementById("empty").classList.toggle("hidden",state.owned.length>0);
+state.owned.forEach((p,i)=>{let d=document.createElement("article");d.className="player "+p.rarity.toLowerCase();d.innerHTML=`<span class="flag">${p.flag}</span><span class="rating">${p.ovr}</span><h3>${p.name}</h3><div class="muted">${p.country} • ${p.role}</div><div class="tag">${p.rarity}</div><div class="bars"><span>BAT ${p.bat}</span><span>BOWL ${p.bowl}</span></div><div class="meter"><i style="width:${p.bat}%"></i></div>`;cards.appendChild(d)});
 }
-document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===b.dataset.tab))}));
-$("discover").addEventListener("click",()=>{const available=catalog.filter(p=>!state.owned.some(x=>x.name===p.name));if(!available.length){$("discovery").classList.remove("hidden");$("discovery").textContent="You found every available prototype player!";return}const p=available[Math.floor(Math.random()*available.length)];state.owned.push(p);state.coins+=25;state.xp+=30;save();render();$("discovery").classList.remove("hidden");$("discovery").innerHTML=`<div class="player ${p.rarity.toLowerCase()}"><div class="portrait">${p.emoji}<span class="flag">${p.flag}</span></div><div class="cardtop"><span class="rarity">${p.rarity} DISCOVERED</span><span class="rating">${p.ovr}</span></div><h3>${p.name}</h3><div class="country">${p.flag} ${p.country}</div><div class="roleline">${p.role}</div><div class="attributes"><div class="attr">BAT <b>${p.bat}</b></div><div class="attr">BOWL <b>${p.bowl}</b></div></div><span class="muted">+25 coins • +30 XP</span></div>`});
-$("reward").addEventListener("click",()=>{if(state.claimed)return;state.claimed=true;state.coins+=100;save();render()});
-$("players").addEventListener("click",e=>{const b=e.target.closest(".add");if(!b)return;const p=state.owned[Number(b.dataset.i)],exists=state.squad.some(x=>x.name===p.name);if(exists)state.squad=state.squad.filter(x=>x.name!==p.name);else if(state.squad.length<11)state.squad.push(p);else{$("squad").textContent="Squad full — maximum 11 players.";return}save();render()});
-function scoreboard(){$("score").textContent=score+"/"+wickets;$("overs").textContent=Math.floor(balls/6)+"."+balls%6}
-function finish(){playing=false;$("innings").textContent="Match finished";$("start").textContent="PLAY AGAIN";if(score>=50){state.wins++;state.coins+=100;state.xp+=100;$("feed").textContent=`🏆 Victory! You scored ${score}/${wickets}. +100 coins and +100 XP.`}else{state.coins+=25;state.xp+=30;$("feed").textContent=`Innings complete: ${score}/${wickets}. +25 coins and +30 XP. Keep practising!`}save();render()}
-$("start").addEventListener("click",()=>{if(!state.squad.length){$("feed").textContent="First discover a player and add them to your squad!";return}score=0;wickets=0;balls=0;playing=true;scoreboard();$("innings").textContent="First innings • 10 overs";$("target").textContent="Target: 50";$("feed").textContent="Bowler is ready. Choose your shot!";$("start").textContent="MATCH IN PROGRESS"});
-document.querySelectorAll(".shot").forEach(b=>b.addEventListener("click",()=>{if(!playing){$("feed").textContent="Start a match first!";return}balls++;const shot=+b.dataset.shot,r=Math.random();let runs=0,msg="";if(r<.1){wickets++;msg="OUT! The bowler wins this delivery."}else if(r<.24){msg="Dot ball! Good bowling."}else if(shot===1){runs=r<.75?1:2;msg=`Solid defence — ${runs} run(s).`}else if(shot===2){runs=r<.25?1:r<.7?2:r<.9?4:0;msg=runs===4?"FOUR! Beautiful boundary!":`${runs} run(s)!`}else{runs=r<.23?0:r<.48?1:r<.73?2:r<.91?4:6;msg=runs===6?"SIX! Out of the park! 🚀":runs===4?"FOUR! Fantastic shot!":`${runs} run(s)!`}score+=runs;scoreboard();$("feed").textContent=msg;if(wickets>=3||balls>=60)finish()}));
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===b));["explore","collection","match"].forEach(id=>document.getElementById(id).classList.toggle("hidden",id!==b.dataset.tab))}));
+document.getElementById("discover").addEventListener("click",()=>{let msg=document.getElementById("discoverMsg");if(state.coins<100){msg.textContent="Not enough coins. Play a match to earn more.";return}let available=roster.filter(p=>!state.owned.some(o=>o.name===p.name));if(!available.length){msg.textContent="You've collected every player in this demo!";return}state.coins-=100;let p=available[Math.floor(Math.random()*available.length)];state.owned.push(p);state.xp+=50;msg.textContent=`🎉 You discovered ${p.name}! ${p.rarity} card added to your collection.`;save()});
+let runs=0,balls=0,score=0,wickets=0,active=false;
+function matchRender(){document.getElementById("score").textContent=score+"/"+wickets;document.getElementById("overs").textContent=Math.floor(balls/6)+"."+(balls%6)+" / 2 overs"}
+function resetMatch(){runs=0;balls=0;score=0;wickets=0;active=true;document.getElementById("matchState").textContent="You're batting!";document.getElementById("matchMsg").textContent="Tap Play next ball to face the delivery.";matchRender()}
+document.getElementById("newMatch").addEventListener("click",resetMatch);
+document.getElementById("playBall").addEventListener("click",()=>{if(!active)resetMatch();if(balls>=12||wickets>=3){return}let power=state.owned.length?Math.min(0.18,state.owned.reduce((a,p)=>a+p.bat,0)/state.owned.length/500):0;let r=Math.random();let outcome=r<.08?"W":r<.30?"0":r<.53?"1":r<.70?"2":r<.88?"4":"6";if(outcome==="W")wickets++;else score+=Number(outcome);balls++;matchRender();if(balls>=12||wickets>=3){active=false;let won=score>=12;document.getElementById("matchState").textContent=won?"🏆 You won the exhibition!":"Innings complete!";document.getElementById("matchMsg").textContent=won?"Victory! +150 coins and +100 XP.":"Good effort! +50 coins and +30 XP.";state.coins+=won?150:50;state.xp+=won?100:30;if(won)state.wins++;save()}else{document.getElementById("matchMsg").textContent=outcome==="W"?"Wicket!":outcome==="0"?"Dot ball!":`${outcome} run${outcome==="1"?"":"s"}!`}});
 render();
-})();
-</script>
-</body></html>
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+</script></body></html>
